@@ -2,7 +2,7 @@ import serial
 import time
 import random
 
-repeat = 10000
+repeat = 1000
 port = '/dev/ttyACM0'
 
 
@@ -15,7 +15,7 @@ def loop_once(ser):
     out = bytearray([random.randrange(0, 255)])
     time_start = time.clock()
     ser.write(out)
-    ser.flush()
+    # ser.flush()
     lo_in = ser.read()
     elapsed = time.clock() - time_start
     match = False
